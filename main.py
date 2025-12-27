@@ -12,8 +12,9 @@ def main():
 		i = 0
 		for term in extract_raw_terms(l_side):
 			print(f"terms {i}: {term}")
-			singed_coef, exponent = extract_term_components(term)
-			print(f"singed_coef: {singed_coef}")
+			sign, const, exponent = extract_term_components(term)
+			print(f"sign: {sign}")
+			print(f"const: {const}")
 			print(f"exponent: {exponent}")
 			i+=1
 	except ValueError as e:
