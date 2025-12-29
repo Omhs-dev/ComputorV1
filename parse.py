@@ -24,14 +24,12 @@ def normalize_equation(i_str):
 		r_side = "+" + r_side
 	return l_side, r_side
 
-
-
 def term_to_dict(raw_terms):
 	d = {}
 	for term in raw_terms:
 		print(f"terms : {term}")
 		components = extract_term_components(term)
-		if components:
+		if not components:
 			continue
 
 		sign, coef_s, exp_s = components 
@@ -41,7 +39,8 @@ def term_to_dict(raw_terms):
 			coef = float(coef_s) * -1.0
 		exp = int(exp_s)
 		d[exp] = d.get(exp, 0.0) + coef
-	return d
+	eps = 1e-12 #epsilon
+	return {e: c for e, c in d.items() if abs(c) > eps}
 
 def parse_input(i_str):
 	'''
@@ -62,7 +61,6 @@ def parse_input(i_str):
 
 	print(f"left dict: {l_dict}")
 	print(f"right dict: {r_dict}")
-
 
 # def reduce_equation(l_side, r_side)
 
