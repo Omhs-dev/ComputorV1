@@ -1,5 +1,5 @@
 import os
-from parse import *
+from parser import *
 from regex import *
 
 def main():

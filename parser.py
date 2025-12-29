@@ -51,7 +51,6 @@ def parse_input(i_str):
 		raise ValueError("String is empty")
 
 	l_side, r_side = normalize_equation(i_str)
-	# print(f"left: {l_side} and right: {r_side}")
 
 	l_raw_terms = extract_raw_terms(l_side)
 	r_raw_terms =extract_raw_terms(r_side)
