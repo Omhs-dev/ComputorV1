@@ -30,7 +30,3 @@ def parse_only_constant(term):
 	sign, const = match.groups()
 	return sign, const, exp
 
-# init constanat and exponential into float and digit
-def normalize_term(const, exp):
-	n_const = float(const)
-	n_exp = int(exp)

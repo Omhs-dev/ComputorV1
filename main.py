@@ -6,17 +6,7 @@ def main():
 	try:
 		inputname = input("computor ")
 
-		l_side, r_side = normalize_equation(inputname)
-		print(f"left: {l_side} and right: {r_side}")
-
-		i = 0
-		for term in extract_raw_terms(l_side):
-			print(f"terms {i}: {term}")
-			sign, const, exponent = extract_term_components(term)
-			print(f"sign: {sign}")
-			print(f"const: {const}")
-			print(f"exponent: {exponent}")
-			i+=1
+		parse_input(inputname)
 	except ValueError as e:
 		print(f"Error: {e}")
 
