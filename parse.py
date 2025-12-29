@@ -24,16 +24,24 @@ def normalize_equation(i_str):
 		r_side = "+" + r_side
 	return l_side, r_side
 
-def all_terms_components(raw_terms):
-	i = 0
+
+
+def term_to_dict(raw_terms):
+	d = {}
 	for term in raw_terms:
-		print(f"terms {i}: {term}")
-		sign, const, exponent = extract_term_components(term)
-		print(f"sign: {sign}")
-		print(f"const: {const}")
-		print(f"exponent: {exponent}")
-		i+=1
-	return sign, const, exponent
+		print(f"terms : {term}")
+		components = extract_term_components(term)
+		if components:
+			continue
+
+		sign, coef_s, exp_s = components 
+		if sign == '+':
+			coef = float(coef_s) * 1.0
+		else:
+			coef = float(coef_s) * -1.0
+		exp = int(exp_s)
+		d[exp] = d.get(exp, 0.0) + coef
+	return d
 
 def parse_input(i_str):
 	'''
@@ -49,12 +57,12 @@ def parse_input(i_str):
 	l_raw_terms = extract_raw_terms(l_side)
 	r_raw_terms =extract_raw_terms(r_side)
 
-	all_terms_components(l_raw_terms)
-	all_terms_components(r_raw_terms)
+	l_dict = term_to_dict(l_raw_terms)
+	r_dict = term_to_dict(r_raw_terms)
+
+	print(f"left dict: {l_dict}")
+	print(f"right dict: {r_dict}")
+
 
 # def reduce_equation(l_side, r_side)
 
-# init constanat and exponential into float and digit
-def normalize_term(const, exp):
-	n_const = float(const)
-	n_exp = int(exp)
