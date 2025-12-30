@@ -58,8 +58,6 @@ def parse_input(i_str):
 	l_dict = term_to_dict(l_raw_terms)
 	r_dict = term_to_dict(r_raw_terms)
 
-	print(f"left dict: {l_dict}")
-	print(f"right dict: {r_dict}")
+	return l_dict, r_dict
 
 # def reduce_equation(l_side, r_side)
-

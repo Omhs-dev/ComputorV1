@@ -1,6 +1,5 @@
 import unittest
-from parse import term_to_dict
-
+from parser import term_to_dict
 
 class TestTermToDict(unittest.TestCase):
     def test_basic(self):
@@ -18,7 +17,6 @@ class TestTermToDict(unittest.TestCase):
     # def test_invalid_term_raises(self):
     #     with self.assertRaises(ValueError):
     #         term_to_dict(["+2*X^1", "bad"])
-
 
 if __name__ == "__main__":
     unittest.main()
