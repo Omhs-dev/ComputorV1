@@ -48,11 +48,13 @@ def reduce_equation(left, right):
 		if abs(coef) > 1e-12:
 			left[exp] = round(coef, 12)
 	# print(f"\nupdated left dict: {left}")
-	return left
+	display_form = display_reduced_form(left)
 
-left_dict = {0: 5.3, 1: -4.0, 3: 0.0}
-right_dict = {0: 4.0}
+	return display_form
 
-red = reduce_equation(left_dict, right_dict)
+# left_dict = {0: 5.3, 1: -4.0, 3: 0.0}
+# right_dict = {0: 4.0}
 
-display_reduced_form(red)
+# red = reduce_equation(left_dict, right_dict)
+
+# display_reduced_form(red)
