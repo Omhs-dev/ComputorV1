@@ -1,37 +1,31 @@
 from parser import *
 
-def display_reduce_form(red):
-	print("reduced form")
-	# sort terms by exp
-	# displaying all terms including 0 coef
-	# usr +/- form
-	# end with = 0
+def format_number(n):
+	if n.is_integer():
+		return str(int(n))
+	return str(n)
 
+
+def display_reduced_form(red_dict):
 	expression = ""
-	terms_list = []
-	sorted_terms = dict(sorted(red.items()))
-	print(sorted_terms)
+	first_term = True
+	sorted_terms = dict(sorted(red_dict.items()))
 
-	# skip the first item for sign assignement
-
-	for key, value in sorted_terms.items():
-		#remove every value sign "+" and "-"
-		# first_term = next(iter(sorted_terms))
-		print(f"value: {value}")
-		sign = "+" if value >= 0 else "-"
-		term = f"{value} * X^{key}"
-		unsigned_term = term if value >= 0 else term.replace("-", "")
-		terms_list.append((sign, unsigned_term))
-		print("here")
-
-	for i, (sign, term) in enumerate(terms_list):
-		if term.startswith("0.0"):
+	for exp, coef in sorted_terms.items():
+		if abs(coef) < 1e-12:
 			continue
-		expression += term if i == 0 and sign == "+" else f" {sign} {term}"
-	# make a dict of terms key = sign and value = term
-	print(terms_list)
+		sign = "+" if coef >= 0 else "-"
+		abs_coef = format_number(abs(coef))
+		term = f"{abs_coef} * X^{exp}"
+
+		if first_term:
+			expression += term
+			first_term = False
+		else:
+			expression += f" {sign} {term}"
+
 	expression += " = 0"
-	print(expression)
+	# print(expression)
 	return expression
 
 def reduce_equation(left, right):
@@ -61,4 +55,4 @@ right_dict = {0: 4.0}
 
 red = reduce_equation(left_dict, right_dict)
 
-display_reduce_form(red)
+display_reduced_form(red)
