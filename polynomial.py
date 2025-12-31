@@ -7,7 +7,7 @@ def display_reduce_form(red):
 	# usr +/- form
 	# end with = 0
 
-	term_dict = {}
+	expression = ""
 	terms_list = []
 	sorted_terms = dict(sorted(red.items()))
 	print(sorted_terms)
@@ -24,8 +24,15 @@ def display_reduce_form(red):
 		terms_list.append((sign, unsigned_term))
 		print("here")
 
+	for i, (sign, term) in enumerate(terms_list):
+		if term.startswith("0.0"):
+			continue
+		expression += term if i == 0 and sign == "+" else f" {sign} {term}"
 	# make a dict of terms key = sign and value = term
 	print(terms_list)
+	expression += " = 0"
+	print(expression)
+	return expression
 
 def reduce_equation(left, right):
 	'''
