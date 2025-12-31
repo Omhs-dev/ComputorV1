@@ -7,26 +7,25 @@ def display_reduce_form(red):
 	# usr +/- form
 	# end with = 0
 
-	red_eq = []
-	reduced_form = ""
+	term_dict = {}
+	terms_list = []
 	sorted_terms = dict(sorted(red.items()))
 	print(sorted_terms)
 
 	# skip the first item for sign assignement
 
 	for key, value in sorted_terms.items():
-		first_term = next(iter(sorted_terms))
-		sign = "+" if value >= 0 else ""
-		term = f"{sign}{value} * X^{key}"
-		red_eq.append(term)
-	
-	for term in red_eq:
-		# if term[0]:
-		# 	term.replace("+", "")
-		reduced_form = reduced_form + " " + term + " "
+		#remove every value sign "+" and "-"
+		# first_term = next(iter(sorted_terms))
+		print(f"value: {value}")
+		sign = "+" if value >= 0 else "-"
+		term = f"{value} * X^{key}"
+		unsigned_term = term if value >= 0 else term.replace("-", "")
+		terms_list.append((sign, unsigned_term))
+		print("here")
 
-	print(red_eq)
-	print(reduced_form)
+	# make a dict of terms key = sign and value = term
+	print(terms_list)
 
 def reduce_equation(left, right):
 	'''
