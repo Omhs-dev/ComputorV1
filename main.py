@@ -12,8 +12,11 @@ def main():
 		# print(f"right dict: {r_dict}")
 		reduced_form = reduce_equation(l_dict, r_dict)
 		display_form = display_reduced_form(reduced_form)
+		degree = detect_degree(reduced_form)
+
 		# TODO: Implement a printer for reduced_form
 		print(f"Reduced form: {display_form}")
+		print(f"Polynomial degree: {degree}")
 	except ValueError as e:
 		print(f"Error: {e}")
 

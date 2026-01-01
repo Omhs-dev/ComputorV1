@@ -52,8 +52,10 @@ def reduce_equation(left, right):
 	return left
 
 def detect_degree(red_form):
-	print(red_form)
-
+	exp = set(red_form)
+	degree = max(exp)
+	print(f"degree: {degree}")
+	return degree
 
 left_dict = {0: 5.3, 1: -4.0, 3: 0.0}
 right_dict = {0: 4.0}
