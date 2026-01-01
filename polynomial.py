@@ -58,12 +58,16 @@ def get_degree(red_form):
 
 def solve_degree_0(red_form):
 	# f(x) = ax + b
-	# x = - (a/b) 
+	# x = - (b/q) 
 	# skip if coef = 0
 	# s = -(exp: 1 -> coef) / (exp: 0 -> coef)
 	# a = (exp: 1 -> coef) and b = (exp: 0 -> coef)
+	a = red_form.get(1, 0)
+	b = red_form.get(0, 0)
+	x = -b / a
 
-	print()
+	print(f"solution: {x}")
+	return x
 
 def solve_polynomial(degree, red_form):
 	print("poly")
@@ -71,7 +75,7 @@ def solve_polynomial(degree, red_form):
 	print(red_form)
 	if degree == 0:
 		print("no solutions")
-		# solve_degree_0
+		solve_degree_0(red_form)
 	if degree == 1:
 		print("The solution is:")
 		# solve_degree_1
@@ -82,11 +86,11 @@ def solve_polynomial(degree, red_form):
 		print("The polynomial degree is strictly greater than 2, I can't solve.")
 		# solve_degree_0
 
-left_dict = {0: 5.3, 1: -4.0, 3: 0.0}
+left_dict = {0: 1, 1: 4}
 right_dict = {0: 4.0}
 
-red = reduce_equation(left_dict, right_dict)
+# red = reduce_equation(left_dict, right_dict)
+# deg = get_degree(red)
+# solve_polynomial(deg, red)
 
-deg = get_degree(red)
-
-solve_polynomial(deg, red)
+solve_degree_0(left_dict)
