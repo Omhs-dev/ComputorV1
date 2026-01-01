@@ -51,26 +51,42 @@ def reduce_equation(left, right):
 	
 	return left
 
-def detect_degree(red_form):
+def get_degree(red_form):
 	exp = set(red_form)
 	degree = max(exp)
 	return degree
+
+def solve_degree_0(red_form):
+	# f(x) = ax + b
+	# x = - (a/b) 
+	# skip if coef = 0
+	# s = -(exp: 1 -> coef) / (exp: 0 -> coef)
+	# a = (exp: 1 -> coef) and b = (exp: 0 -> coef)
+
+	print()
 
 def solve_polynomial(degree, red_form):
 	print("poly")
 	print(degree)
 	print(red_form)
-
-	if degree < 2:
+	if degree == 0:
+		print("no solutions")
+		# solve_degree_0
+	if degree == 1:
+		print("The solution is:")
+		# solve_degree_1
+	if degree == 2:
+		print("Discriminant is strictly positive, the two solutions are:")
+		# solve_degree_2
+	if degree > 2:
 		print("The polynomial degree is strictly greater than 2, I can't solve.")
-
+		# solve_degree_0
 
 left_dict = {0: 5.3, 1: -4.0, 3: 0.0}
 right_dict = {0: 4.0}
 
 red = reduce_equation(left_dict, right_dict)
 
-deg = detect_degree(red)
-
+deg = get_degree(red)
 
 solve_polynomial(deg, red)
