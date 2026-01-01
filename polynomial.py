@@ -57,6 +57,9 @@ def get_degree(red_form):
 	return degree
 
 def solve_degree_0(red_form):
+	print()
+
+def solve_degree_1(red_form):
 	# f(x) = ax + b
 	# x = - (b/q) 
 	# skip if coef = 0
@@ -75,10 +78,10 @@ def solve_polynomial(degree, red_form):
 	print(red_form)
 	if degree == 0:
 		print("no solutions")
-		solve_degree_0(red_form)
+		# solve_degree_1
 	if degree == 1:
 		print("The solution is:")
-		# solve_degree_1
+		solve_degree_1(red_form)
 	if degree == 2:
 		print("Discriminant is strictly positive, the two solutions are:")
 		# solve_degree_2
