@@ -73,6 +73,9 @@ def solve_degree_1(red_form):
 	print(f"solution: {x}")
 	return x
 
+def solve_degree_2(red_form):
+	print()
+
 def solve_polynomial(degree, red_form):
 	print("poly")
 	print(degree)
