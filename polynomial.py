@@ -88,8 +88,8 @@ def solve_degree_2(red_form):
 	delta = b**2 - 4 * a * c
 
 	if delta > 0:
-		x_1 = (-b + math.sqrt(delta)) / (2 * a)
-		x_2 = (-b - math.sqrt(delta)) / (2 * a)
+		x_1 = (-b - math.sqrt(delta)) / (2 * a)
+		x_2 = (-b + math.sqrt(delta)) / (2 * a)
 		print("Discriminant is strictly positive, the two solutions are:")
 		print(f"x1: {x_1:.6}\nx2: {x_2:.6}")
 		# return x_1, x_2

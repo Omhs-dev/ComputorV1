@@ -17,6 +17,8 @@ def main():
 		# TODO: Implement a printer for reduced_form
 		print(f"Reduced form: {display_form}")
 		print(f"Polynomial degree: {degree}")
+
+		solve_polynomial(reduced_form, degree)
 	except ValueError as e:
 		print(f"Error: {e}")
 
