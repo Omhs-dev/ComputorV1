@@ -58,6 +58,11 @@ def get_degree(red_form):
 
 def solve_degree_0(red_form):
 	a = red_form.get(0,0)
+
+	if a is not 0:
+		print("No solution")
+	if a == 0:
+		print("All real numbers are solutions")
 	print(a)
 
 def solve_degree_1(red_form):
@@ -123,4 +128,4 @@ right_dict = {0: 4.0}
 # deg = get_degree(red)
 # solve_polynomial(deg, red)
 
-solve_degree_2(left_dict)
+solve_degree_0(right_dict)
