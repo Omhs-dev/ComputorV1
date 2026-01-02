@@ -1,10 +1,10 @@
+import math
 from parser import *
 
 def format_number(n):
 	if n.is_integer():
 		return str(int(n))
 	return str(n)
-
 
 def display_reduced_form(red_dict):
 	expression = ""
@@ -63,9 +63,7 @@ def solve_degree_0(red_form):
 def solve_degree_1(red_form):
 	# f(x) = ax + b
 	# x = - (b/q) 
-	# skip if coef = 0
-	# s = -(exp: 1 -> coef) / (exp: 0 -> coef)
-	# a = (exp: 1 -> coef) and b = (exp: 0 -> coef)
+
 	a = red_form.get(1, 0)
 	b = red_form.get(0, 0)
 	x = -b / a
@@ -74,7 +72,29 @@ def solve_degree_1(red_form):
 	return x
 
 def solve_degree_2(red_form):
-	print()
+	# f(x) = ax^2 + bx + c
+	# delta = b^2 - 4ac
+
+	a = red_form.get(2, 0)
+	b = red_form.get(1, 0)
+	c = red_form.get(0, 0)
+
+	print(f"a: {a} - b: {b} - c: {c}")
+
+	delta = b**2 - 4 * a * c
+
+	if delta > 0:
+		print("2 solutions: ")
+		x_1 = (-b + math.sqrt(delta)) / (2 * a)
+		x_2 = (-b - math.sqrt(delta)) / (2 * a)
+		print(f"x1: {x_1} and x2: {x_2}")
+	if delta == 0:
+		print("only 1 solution exist: ")
+		x = -b / 2 * a
+		print(f"x: {x}")
+	if delta < 0:
+		print("The polynomial has no real solutions")
+	print(delta)
 
 def solve_polynomial(degree, red_form):
 	print("poly")
@@ -88,16 +108,19 @@ def solve_polynomial(degree, red_form):
 		solve_degree_1(red_form)
 	if degree == 2:
 		print("Discriminant is strictly positive, the two solutions are:")
-		# solve_degree_2
+		solve_degree_2(red_form)
 	if degree > 2:
 		print("The polynomial degree is strictly greater than 2, I can't solve.")
-		# solve_degree_0
 
-left_dict = {0: 1, 1: 4}
+# 2x^2−4x−6
+# x2−4x+4=0
+
+# left_dict = {0: -6, 1: -4, 2: 2}
+left_dict = {0: 4, 1: -4, 2: 1}
 right_dict = {0: 4.0}
 
 # red = reduce_equation(left_dict, right_dict)
 # deg = get_degree(red)
 # solve_polynomial(deg, red)
 
-solve_degree_0(right_dict)
+solve_degree_2(left_dict)
