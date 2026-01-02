@@ -54,16 +54,17 @@ def reduce_equation(left, right):
 def get_degree(red_form):
 	exp = set(red_form)
 	degree = max(exp)
-	return degree
+	return int(degree)
 
 def solve_degree_0(red_form):
 	a = red_form.get(0,0)
 
-	if a is not 0:
+	if a != 0:
 		print("No solution")
 	if a == 0:
 		print("All real numbers are solutions")
-	print(a)
+	# print(a)
+	# return a
 
 def solve_degree_1(red_form):
 	# f(x) = ax + b
@@ -73,8 +74,8 @@ def solve_degree_1(red_form):
 	b = red_form.get(0, 0)
 	x = -b / a
 
-	print(f"solution: {x}")
-	return x
+	print(f"The solution is:\n{x}")
+	# return x
 
 def solve_degree_2(red_form):
 	# f(x) = ax^2 + bx + c
@@ -84,35 +85,29 @@ def solve_degree_2(red_form):
 	b = red_form.get(1, 0)
 	c = red_form.get(0, 0)
 
-	print(f"a: {a} - b: {b} - c: {c}")
-
 	delta = b**2 - 4 * a * c
 
 	if delta > 0:
-		print("2 solutions: ")
 		x_1 = (-b + math.sqrt(delta)) / (2 * a)
 		x_2 = (-b - math.sqrt(delta)) / (2 * a)
-		print(f"x1: {x_1} and x2: {x_2}")
+		print("Discriminant is strictly positive, the two solutions are:")
+		print(f"x1: {x_1:.6}\nx2: {x_2:.6}")
+		# return x_1, x_2
 	if delta == 0:
-		print("only 1 solution exist: ")
 		x = -b / 2 * a
+		print("Discriminant is = 0, the solution is:")
 		print(f"x: {x}")
+		# return x
 	if delta < 0:
-		print("The polynomial has no real solutions")
-	print(delta)
+		print("Discriminant is strictly negative, no real solutions")
+	return None
 
-def solve_polynomial(degree, red_form):
-	print("poly")
-	print(degree)
-	print(red_form)
+def solve_polynomial(red_form, degree):
 	if degree == 0:
-		print("Every real number is a solution")
-		# solve_degree_1
+		solve_degree_0(red_form)
 	if degree == 1:
-		print("The solution is:")
 		solve_degree_1(red_form)
 	if degree == 2:
-		print("Discriminant is strictly positive, the two solutions are:")
 		solve_degree_2(red_form)
 	if degree > 2:
 		print("The polynomial degree is strictly greater than 2, I can't solve.")
@@ -122,10 +117,12 @@ def solve_polynomial(degree, red_form):
 
 # left_dict = {0: -6, 1: -4, 2: 2}
 left_dict = {0: 4, 1: -4, 2: 1}
-right_dict = {0: 4.0}
+right_dict = {1: 4.0}
 
-# red = reduce_equation(left_dict, right_dict)
-# deg = get_degree(red)
+red = reduce_equation(left_dict, right_dict)
+deg = get_degree(red)
+
+print(f"Degree: {deg}")
 # solve_polynomial(deg, red)
 
-solve_degree_0(right_dict)
+solve_polynomial(red, deg)
