@@ -6,7 +6,7 @@ def format_number(n):
 		return str(int(n))
 	return str(n)
 
-def display_reduced_form(red_dict):
+def format_reduced_form(red_dict):
 	expression = ""
 	first_term = True
 	sorted_terms = dict(sorted(red_dict.items()))

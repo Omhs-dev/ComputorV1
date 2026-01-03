@@ -11,7 +11,7 @@ def main():
 		# print(f"left dict: {l_dict}")
 		# print(f"right dict: {r_dict}")
 		reduced_form = reduce_equation(l_dict, r_dict)
-		display_form = display_reduced_form(reduced_form)
+		display_form = format_reduced_form(reduced_form)
 		degree = get_degree(reduced_form)
 
 		# TODO: Implement a printer for reduced_form
