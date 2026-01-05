@@ -1,7 +1,13 @@
 import os
-from parsing import *
-from regex import *
-from polynomial import *
+
+from parsing import parse_input
+from utils import print_reduced_form, print_degree
+from polynomial import (
+	reduce_equation,
+	format_reduced_form,
+	get_degree,
+	solve_polynomial,
+)
 
 # 5 * X^0 + 4 * X^1 - 0 * X^2 = 1 * X^0
 
@@ -18,6 +24,8 @@ def main():
 		solve_polynomial(reduced_form, degree)
 	except ValueError as e:
 		print(f"Error: {e}")
+	except (KeyboardInterrupt, EOFError):
+		print("\nExiting...")
 
 if __name__ == "__main__":
 	main()
