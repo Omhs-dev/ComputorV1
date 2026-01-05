@@ -49,8 +49,8 @@ def parse_input(i_str):
 	if not i_str:
 		raise ValueError("String is empty")
 	
-	if ' ' not in i_str:
-		raise ValueError("No space in between")
+	if not is_X_only(i_str):
+		raise ValueError("Only 'X' is allowed as a variable")
 
 	l_side, r_side = normalize_equation(i_str)
 
