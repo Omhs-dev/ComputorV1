@@ -1,9 +1,5 @@
 from regex import *
 from utils import *
-# 5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0
-
-# Input has to be in ""
-# Input must have only: Numbers(Int, float), *, X, +, -, ^ and =
 
 def normalize_equation(i_str):
 	if i_str == "":
@@ -17,10 +13,8 @@ def normalize_equation(i_str):
 	if l_side == "" or r_side == "":
 		raise ValueError("Both Sides must be non-empty")
 	if l_side[0] not in "+-":
-		# print("Warning: does not have a sign")
 		l_side = "+" + l_side
 	if r_side[0] not in "+-":
-		# print("Warning: does not have a sign")
 		r_side = "+" + r_side
 	return l_side, r_side
 
@@ -62,5 +56,3 @@ def parse_input(i_str):
 	r_dict = term_to_dict(r_raw_terms)
 
 	return l_dict, r_dict
-
-# def reduce_equation(l_side, r_side)

@@ -1,5 +1,19 @@
 import re
 
+def print_degree_limit_error():
+	print("The polynomial degree is strictly greater than 2, I can't solve.")
+
+def print_reduced_form(red_form):
+	print(f"Reduced form: {red_form}")
+
+def print_degree(degree):
+	print(f"Polynomial degree: {degree}")
+
+def format_number(n):
+	if n.is_integer():
+		return str(int(n))
+	return str(n)
+
 def is_X_only(i_str):
 	for ch in i_str:
 		if ch.isalpha() and ch != "X":
