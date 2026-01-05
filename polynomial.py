@@ -116,13 +116,13 @@ def solve_polynomial(red_form, degree):
 # x2−4x+4=0
 
 # left_dict = {0: -6, 1: -4, 2: 2}
-left_dict = {0: 4, 1: -4, 2: 1}
-right_dict = {1: 4.0}
+# left_dict = {0: 4, 1: -4, 2: 1}
+# right_dict = {1: 4.0}
 
-red = reduce_equation(left_dict, right_dict)
-deg = get_degree(red)
+# red = reduce_equation(left_dict, right_dict)
+# deg = get_degree(red)
 
-print(f"Degree: {deg}")
-# solve_polynomial(deg, red)
+# print(f"Degree: {deg}")
+# # solve_polynomial(deg, red)
 
-solve_polynomial(red, deg)
+# solve_polynomial(red, deg)

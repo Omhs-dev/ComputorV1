@@ -10,8 +10,9 @@ def extract_raw_terms(n_str):
 	if not n_str:
 		return []
 	terms = re.findall(r"[+-][^+-]+", n_str)
-	for term in enumerate(terms):
-		if is_valid_term(term) is None:
+
+	for term in terms:
+		if not is_valid_term(term):
 			raise ValueError(f"Incorrect term: {term}")
 	return terms
 
