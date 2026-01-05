@@ -81,6 +81,7 @@ def solve_degree_2(red_form):
 		x_1 = (-b - math.sqrt(delta)) / (2 * a)
 		x_2 = (-b + math.sqrt(delta)) / (2 * a)
 		print("Discriminant is strictly positive, the two solutions are:")
+		print(f"{x_1:.6}\n{x_2:.6}")
 	if delta == 0:
 		x = -b / 2 * a
 		print("Discriminant is = 0, the solution is:")
