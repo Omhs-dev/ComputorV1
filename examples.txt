@@ -1,0 +1,15 @@
+### Valid Inputs
+5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0
+5*X^0+4*X^1-9.3*X^2=1*X^0
+1 * X^2 - 4 * X^1 + 4 * X^0 = 0 * X^0
+-1 * X^3 + 0.5 * X^2 - 4 * X^0 = +2 * X^1
+8 * X^0 = 8 * X^0
+
+### Invalid Inputs
+5 * Y^0 = 0 * X^0                  (Wrong variable: only 'X' allowed)
+5 * X^0 + 4 * X^1 =                (Missing right side)
+5 * X^0 = 4 * X^0 = 0              (Multiple equals signs)
++3 * X^ = 0                        (Missing exponent value)
+5 * X^0 + 4 * X^1 - 9.3 * X^2      (Missing equals sign and right side)
+A * X^0 = 0                        (Non-numeric coefficient)
+5 * X^0 ++ 4 * X^1 = 0             (Double operator)
