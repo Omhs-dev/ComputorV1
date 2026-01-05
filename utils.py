@@ -29,9 +29,8 @@ def is_valid_term(term):
 	return False
 
 def check_bad_spacing(i_str):
-	bad_spacing = re.search(r"(?<! )[-+=*]|[-+=*](?! )", i_str)
-
-	if re.search(r"(?<! )[-+=*]|[-+=*](?! )", i_str):
+	#TODO: fix spacing betwen -+ and also consecutive signs
+	if re.search(r"(?<! )[=*]|[=*](?! )", i_str):
 		return True
 	if re.search(r"\s\^|\^\s", i_str):
 		return True

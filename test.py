@@ -12,7 +12,6 @@ def run_flow(equation: str):
     degree = get_degree(reduced)
     return l_dict, r_dict, reduced, display, degree
 
-
 class TestMainFlow(unittest.TestCase):
     def test_flow_degree_2(self):
         eq = "1 * X^2 - 4 * X^1 + 4 * X^0 = 0 * X^0"
