@@ -1,4 +1,5 @@
 import re
+from utils import *
 
 # 5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0
 # if there is no X exponent is 0
@@ -9,6 +10,9 @@ def extract_raw_terms(n_str):
 	if not n_str:
 		return []
 	terms = re.findall(r"[+-][^+-]+", n_str)
+	for term in enumerate(terms):
+		if is_valid_term(term) is None:
+			raise ValueError(f"Incorrect term: {term}")
 	return terms
 
 def extract_term_components(term):
