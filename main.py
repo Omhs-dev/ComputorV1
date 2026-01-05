@@ -1,5 +1,5 @@
 import os
-from parser import *
+from parsing import *
 from regex import *
 from polynomial import *
 

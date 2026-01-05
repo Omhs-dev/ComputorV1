@@ -1,5 +1,5 @@
 from regex import *
-
+from utils import *
 # 5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0
 
 # Input has to be in ""
@@ -48,6 +48,9 @@ def parse_input(i_str):
 	'''
 	if not i_str:
 		raise ValueError("String is empty")
+	
+	if ' ' not in i_str:
+		raise ValueError("No space in between")
 
 	l_side, r_side = normalize_equation(i_str)
 

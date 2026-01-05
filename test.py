@@ -1,5 +1,5 @@
 import unittest
-from parser import term_to_dict
+from parsing import term_to_dict
 
 class TestTermToDict(unittest.TestCase):
     def test_basic(self):
