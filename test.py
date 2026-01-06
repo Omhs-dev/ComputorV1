@@ -3,7 +3,7 @@ import unittest
 from parsing import parse_input
 from polynomial import reduce_equation, format_reduced_form, get_degree, solve_polynomial
 
-
+# command: python3 -m unittest -v
 def run_flow(equation: str):
     # Mimic main() flow without input()
     l_dict, r_dict = parse_input(equation)
