@@ -1,4 +1,8 @@
 import os, sys, unittest
+
+from io import StringIO
+from unittest.mock import patch
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from src.parsing import parse_input
@@ -38,8 +42,6 @@ class TestMainFlow(unittest.TestCase):
 			("5 * X^0 = 3 * X^0", "No solution"),
 			("0 * X^0 = 1 * X^0", "No solution"),
 		]
-		from io import StringIO
-		from unittest.mock import patch
 
 		for eq, expected_msg in cases:
 			with self.subTest(eq=eq):
@@ -113,7 +115,6 @@ class TestMainFlow(unittest.TestCase):
 			with self.subTest(eq=eq):
 				with self.assertRaises(ValueError):
 					run_flow(eq)
-
 
 if __name__ == "__main__":
 	unittest.main()
