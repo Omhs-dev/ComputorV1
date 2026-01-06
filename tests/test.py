@@ -1,4 +1,5 @@
-import unittest
+import os, sys, unittest
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from src.parsing import parse_input
 from src.polynomial import reduce_equation, format_reduced_form, get_degree, solve_polynomial
@@ -30,9 +31,24 @@ class TestMainFlow(unittest.TestCase):
 		self.assertEqual(degree, 1)
 
 	def test_flow_degree_0(self):
-		eq = "5 * X^0 = 0 * X^0"
-		_, _, _, _, degree = run_flow(eq)
-		self.assertEqual(degree, 0)
+		cases = [
+			("42 * X^0 = 42 * X^0", "All real numbers are solutions"),
+			("8 * X^0 = 8 * X^0", "All real numbers are solutions"),
+			("42 * X^0 = 42 * X^0", "All real numbers are solutions"),
+			("5 * X^0 = 3 * X^0", "No solution"),
+			("0 * X^0 = 1 * X^0", "No solution"),
+		]
+		from io import StringIO
+		from unittest.mock import patch
+
+		for eq, expected_msg in cases:
+			with self.subTest(eq=eq):
+				_, _, reduced, _, degree = run_flow(eq)
+				self.assertEqual(degree, 0)
+				with patch("sys.stdout", new=StringIO()) as fake_out:
+					solve_polynomial(reduced, degree)
+					out = fake_out.getvalue()
+				self.assertIn(expected_msg, out)
 
 	# ...existing code...
 	def test_cubic_degree(self):

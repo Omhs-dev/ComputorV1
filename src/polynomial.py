@@ -51,7 +51,6 @@ def get_degree(red_form):
 	degree = max(exp)
 	return int(degree)
 
-#TODO: handle 42 * X^0 = 42 * X^0
 def solve_degree_0(red_form):
 	a = red_form.get(0,0)
 
@@ -68,7 +67,7 @@ def solve_degree_1(red_form):
 	a = red_form.get(1, 0)
 	b = red_form.get(0, 0)
 	x = -b / a
-	print(f"The solution is:\n{x}")
+	print(f"The solution is:\n{format_number(x)}")
 
 def solve_degree_2(red_form):
 	'''
@@ -91,7 +90,7 @@ def solve_degree_2(red_form):
 	if delta == 0:
 		x = -b / 2 * a
 		print("Discriminant is = 0, the solution is:")
-		print(f"x: {x}")
+		print(f"x: {format_number(x)}")
 	if delta < 0:
 		print("Discriminant is strictly negative, no real solutions")
 
