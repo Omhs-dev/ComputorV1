@@ -40,7 +40,7 @@ def check_bad_spacing(i_str):
 	'''
 	if re.search(r"\s\^|\^\s", i_str):
 		return True
-	if re.search(r"\-\+|\+\-", i_str):
+	if re.search(r"(:?\-\s*\+|\+\s*\-)", i_str):
 		return True
 	if re.search(r"(?<! )[=*]|[=*](?! )", i_str):
 		return True

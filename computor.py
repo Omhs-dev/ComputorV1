@@ -9,8 +9,10 @@ from src.polynomial import (
 	solve_polynomial,
 )
 
-# 5 * X^0 + 4 * X^1 - 0 * X^2 = 1 * X^0
+# 5 * X^0 - 4 * X^1 - 0 * X^2 = 1 * X^0
+# 5 * X^0 +- 4 * X^1 - 0 * X^2 = 1 * X^0
 
+#TODO: decide weither to use argv[1] or not as input
 def main():
 	try:
 		inputname = input("computor ")
