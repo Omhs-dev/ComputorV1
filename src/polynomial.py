@@ -81,18 +81,16 @@ def solve_degree_2(red_form):
 
 	delta = b**2 - 4 * a * c
 
-	# TODO: Implement my sqrt function
+	# TODO: Implement my sqrt function here
 	if delta > 0:
 		x_1 = (-b - math.sqrt(delta)) / (2 * a)
 		x_2 = (-b + math.sqrt(delta)) / (2 * a)
-		print("Discriminant is strictly positive, the two solutions are:")
-		print(f"{x_1:.6}\n{x_2:.6}")
+		print_discriminant_positive(x_1, x_2)
 	if delta == 0:
 		x = -b / 2 * a
-		print("Discriminant is = 0, the solution is:")
-		print(f"x: {format_number(x)}")
+		print_discriminant_zero(x)
 	if delta < 0:
-		print("Discriminant is strictly negative, no real solutions")
+		print_discriminant_negative()
 
 def solve_polynomial(red_form, degree):
 	if degree == 0:

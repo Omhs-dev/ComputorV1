@@ -1,5 +1,17 @@
 import re
 
+
+def print_discriminant_positive(x_1, x_2):
+	print("Discriminant is strictly positive, the two solutions are:")
+	print(f"{x_1:.6}\n{x_2:.6}")
+
+def print_discriminant_zero(x):
+	print("Discriminant is = 0, the solution is:")
+	print(f"x: {format_number(x)}")
+
+def print_discriminant_negative():
+	print("Discriminant is strictly negative, no real solutions")
+
 def print_degree_limit_error():
 	print("The polynomial degree is strictly greater than 2, I can't solve.")
 
