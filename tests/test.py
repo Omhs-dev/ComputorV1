@@ -88,6 +88,7 @@ class TestMainFlow(unittest.TestCase):
 			"A * X^0 = 0",                        # Non-numeric coefficient
 			"5 * Y^0 = 0 * X^0",                  # Wrong variable
 			"5 * X^0 ++ 4 * X^1 = 0",             # Consecutive signs
+			"5 * X^0 + - 4 * X^1 = 1 * X^0",      # Consecutive signs with space
 			"5 * X ^ 2 = 0 * X^0",                # Bad spacing
 			"5*X^0+4*X^1=1*X^0",                  # No spaces at all (invalid per spacing rules)
 			"5 * x^2 = 0 * X^0",                  # Lowercase x (if only 'X' allowed)

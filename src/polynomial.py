@@ -7,6 +7,8 @@ def format_reduced_form(red_dict):
 	first_term = True
 	sorted_terms = dict(sorted(red_dict.items()))
 
+	if red_dict.get(0,0) == 0:
+		return None
 	for exp, coef in sorted_terms.items():
 		if abs(coef) < 1e-12:
 			continue
@@ -40,6 +42,8 @@ def reduce_equation(left, right):
 		coef = l - r
 		if abs(coef) > 1e-12:
 			left[exp] = round(coef, 12)
+		else:
+			left[exp] = 0
 	return left
 
 def get_degree(red_form):
