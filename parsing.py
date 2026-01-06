@@ -42,10 +42,10 @@ def parse_input(i_str):
 	'''
 	if not i_str:
 		raise ValueError("String is empty")
-	if check_bad_spacing(i_str):
-		raise ValueError("Bad spacing or Consecutive signs")
 	if not is_X_only(i_str):
 		raise ValueError("Only 'X' is allowed as a variable")
+	if check_bad_spacing(i_str):
+		raise ValueError("Bad spacing or Consecutive signs")
 
 	l_side, r_side = normalize_equation(i_str)
 
