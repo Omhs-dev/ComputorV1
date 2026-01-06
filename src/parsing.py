@@ -1,5 +1,5 @@
-from regex import *
-from utils import *
+from src.regex import *
+from src.utils import *
 
 def normalize_equation(i_str):
 	if i_str == "":

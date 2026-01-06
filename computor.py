@@ -1,8 +1,8 @@
 import os
 
-from parsing import parse_input
-from utils import print_reduced_form, print_degree
-from polynomial import (
+from src.parsing import parse_input
+from src.utils import print_reduced_form, print_degree
+from src.polynomial import (
 	reduce_equation,
 	format_reduced_form,
 	get_degree,

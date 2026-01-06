@@ -1,6 +1,6 @@
 import math
 from parser import *
-from utils import *
+from src.utils import *
 
 def format_reduced_form(red_dict):
 	expression = ""
@@ -47,6 +47,7 @@ def get_degree(red_form):
 	degree = max(exp)
 	return int(degree)
 
+#TODO: handle 42 * X^0 = 42 * X^0
 def solve_degree_0(red_form):
 	a = red_form.get(0,0)
 

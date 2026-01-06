@@ -1,5 +1,5 @@
 import re
-from utils import *
+from src.utils import *
 
 def extract_raw_terms(n_str):
 	if not n_str:
