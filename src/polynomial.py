@@ -81,10 +81,11 @@ def solve_degree_2(red_form):
 
 	delta = b**2 - 4 * a * c
 
-	# TODO: Implement my sqrt function
 	if delta > 0:
-		x_1 = (-b - math.sqrt(delta)) / (2 * a)
-		x_2 = (-b + math.sqrt(delta)) / (2 * a)
+		x_1 = (-b - sqrt_newton(delta)) / (2 * a)
+		# x_1 = (-b - math.sqrt(delta)) / (2 * a)
+		x_2 = (-b + sqrt_newton(delta)) / (2 * a)
+		# x_2 = (-b + math.sqrt(delta)) / (2 * a)
 		print_discriminant_positive(x_1, x_2)
 	if delta == 0:
 		x = -b / 2 * a

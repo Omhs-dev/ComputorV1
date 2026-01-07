@@ -11,6 +11,7 @@ from src.polynomial import (
 
 # 5 * X^0 - 4 * X^1 - 0 * X^2 = 1 * X^0
 # 5 * X^0 +- 4 * X^1 - 0 * X^2 = 1 * X^0
+# 5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0
 
 #TODO: decide weither to use argv[1] or not as input
 def main():

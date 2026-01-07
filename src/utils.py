@@ -59,24 +59,30 @@ def format_number(n):
 		return str(int(n))
 	return str(n)
 
-def sqrt(n, tol=1e-12, max_iter=1000):
-    """
-    Compute the square root of a non-negative number using Newton's method.
-    Raises ValueError for negative input.
-    """
-    n = float(n)
-    if n < 0:
-        raise ValueError("sqrt() not defined for negative numbers")
-    if n == 0.0:
-        return 0.0
+def sqrt_newton(x):
+	'''
+	Newton formula:
+	n_guess = n_guess - f(curr_guess)/f'(curr_guess)
+	
+	for my square root implementation:
+	y^2 = x
+	f(y) = y^2 - x
+	f'(y) = 2y
+	y_new = y - f(y) / f'(y)
+	'''
 
-    # initial guess
-    x = n if n >= 1.0 else 1.0
+	if x < 0:
+		raise ValueError("Can not compute negative numbers")
+	if x == 0:
+		return 0
+	if x == 1:
+		return 1
+	
+	y = x/2 if x >= 1 else 1 # the guess
 
-    for _ in range(max_iter):
-        prev = x
-        x = 0.5 * (x + n / x)
-        if abs(x - prev) <= tol:
-            break
-
-    return x
+	i = 0
+	while abs(y**2 - x) / x > 1e-12 and i < 50:
+		y_new = 1/2 * (y + (x/y))
+		y = y_new
+		i = i + 1
+	return y
