@@ -1,7 +1,32 @@
 import re
 
 ''' PINTERS '''
-#TODO: rename the print function names
+
+def positive_delta_steps(delta, a, b, c):
+	x_1 = (-b - sqrt_newton(delta)) / (2 * a)
+	x_2 = (-b + sqrt_newton(delta)) / (2 * a)
+
+	#TODO: - or + for delta format
+	steps = f"""
+	Steps:
+	a = {format_number(a)}
+	b = {format_number(b)}
+	c = {format_number(c)}
+
+	Δ = b² - 4ac
+	Δ = {format_number(b*b)} - {format_number(-4*a*c)}
+	Δ = {format_number(delta)}
+
+	Δ > 0 → two real solutions
+
+	x1 = (-b - √Δ) / (2a)
+	x2 = (-b + √Δ) / (2a)
+
+	x1 = {x_1:.6}
+	x2 = {x_2:.6}
+	"""
+	return steps
+
 def print_two_real_solutions(x_1, x_2):
 	print("Discriminant is strictly positive, the two solutions are:")
 	print(f"{x_1:.6}\n{x_2:.6}")

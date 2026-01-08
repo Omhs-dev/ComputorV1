@@ -94,6 +94,7 @@ def solve_degree_2(red_form):
 	if delta > 0:
 		x_1 = (-b - sqrt_newton(delta)) / (2 * a)
 		x_2 = (-b + sqrt_newton(delta)) / (2 * a)
+		print(positive_delta_steps(delta, a, b, c).strip())
 		print_two_real_solutions(x_1, x_2)
 	if delta == 0:
 		x = -b / 2 * a
