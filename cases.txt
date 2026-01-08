@@ -1,0 +1,8 @@
+5 * X^2 + 3 * X^1 = 5 * X^2 + 3 * X^1
+0 = 0
+All real numbers are solutions
+
+0 * X^2 + 0 * X^1 = 0 * X^0
+Reduced form: 0 = 0
+All real numbers are solutions
+

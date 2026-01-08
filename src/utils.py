@@ -8,8 +8,10 @@ def print_discriminant_zero(x):
 	print("Discriminant is = 0, the solution is:")
 	print(f"x: {format_number(x)}")
 
-def print_discriminant_negative():
-	print("Discriminant is strictly negative, no real solutions")
+def print_discriminant_negative(alpha_1, beta_1, alpha_2, beta_2):
+	print("Discriminant is strictly negative, the complex solutions are:")
+	print(f"{format_number(alpha_1)} + {format_number(beta_1)}*i")
+	print(f"{format_number(alpha_2)} - {format_number(beta_2)}*i")
 
 def print_degree_limit_error():
 	print("The polynomial degree is strictly greater than 2, I can't solve.")
@@ -55,8 +57,10 @@ def check_bad_spacing(i_str):
 	return False
 
 def format_number(n):
-	if n.is_integer():
-		return str(int(n))
+	if isinstance(n, float):
+		if abs(n - round(n)) < 1e-9:
+			return str(int(round(n)))
+		return f"{n:.5f}".rstrip("0").rstrip(".")
 	return str(n)
 
 def sqrt_newton(x):

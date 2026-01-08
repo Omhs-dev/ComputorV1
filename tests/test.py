@@ -19,15 +19,54 @@ def run_flow(equation: str):
 
 class TestMainFlow(unittest.TestCase):
 	def test_flow_degree_2(self):
-		eq = "1 * X^2 - 4 * X^1 + 4 * X^0 = 0 * X^0"
-		l, r, reduced, display, degree = run_flow(eq)
-		self.assertIsInstance(l, dict)
-		self.assertIsInstance(r, dict)
-		self.assertIsInstance(reduced, dict)
-		self.assertIsInstance(display, str)
-		self.assertEqual(degree, 2)
-		# Should not raise
-		solve_polynomial(reduced, degree)
+		cases = [
+			# delta > 0 -> two distinct real solutions (1 and 2)
+			("1 * X^2 - 3 * X^1 + 2 * X^0 = 0 * X^0", "positive", ["1", "2"]),
+			# delta = 0 -> one real solution (2)
+			("1 * X^2 - 4 * X^1 + 4 * X^0 = 0 * X^0", "zero", ["2"]),
+			# delta < 0 -> no real solutions (complex)
+			("1 * X^2 + 1 * X^1 + 1 * X^0 = 0 * X^0", "negative", None),
+		]
+
+		for eq, expected_sign, expected_roots in cases:
+			with self.subTest(eq=eq):
+				l, r, reduced, display, degree = run_flow(eq)
+				self.assertIsInstance(l, dict)
+				self.assertIsInstance(r, dict)
+				self.assertIsInstance(reduced, dict)
+				self.assertIsInstance(display, str)
+				self.assertEqual(degree, 2)
+				with patch("sys.stdout", new=StringIO()) as fake_out:
+					solve_polynomial(reduced, degree)
+					out = fake_out.getvalue()
+				self.assertIn(expected_sign, out)
+				if expected_roots:
+					for root in expected_roots:
+						self.assertIn(root, out)
+	def test_flow_degree_2(self):
+		cases = [
+			# two distinct real solutions (1 and 2)
+			("1 * X^2 - 3 * X^1 + 2 * X^0 = 0 * X^0", ["1", "2"]),
+			# discriminant = 0 -> message and single root 2
+			("1 * X^2 - 4 * X^1 + 4 * X^0 = 0 * X^0", ["Discriminant is = 0", "2"]),
+			# discriminant < 0 -> complex roots (contain 'i')
+			("1 * X^2 + 1 * X^1 + 1 * X^0 = 0 * X^0", ["i"]),
+		]
+
+		for eq, expected_items in cases:
+			with self.subTest(eq=eq):
+				l, r, reduced, display, degree = run_flow(eq)
+				self.assertIsInstance(l, dict)
+				self.assertIsInstance(r, dict)
+				self.assertIsInstance(reduced, dict)
+				self.assertIsInstance(display, str)
+				self.assertEqual(degree, 2)
+				# Capture solver output and check expected markers/roots
+				with patch("sys.stdout", new=StringIO()) as fake_out:
+					solve_polynomial(reduced, degree)
+					out = fake_out.getvalue()
+				for item in expected_items:
+					self.assertIn(item, out)
 
 	def test_flow_degree_1(self):
 		eq = "-1 * X^1 + 2 * X^0 = 0 * X^0"
