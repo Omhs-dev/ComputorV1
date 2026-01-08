@@ -16,10 +16,10 @@ from src.polynomial import (
 # 6 * X^0 + 11 * X^1 + 5 * X^2 = 1 * X^0 + 1 * X^1
 # 5 * X^0 + 3 * X^1 + 3 * X^2 = 1 * X^0 + 0 * X^1
 
-# TODO: clean terminal after each input
 def main():
 	try:
 		input_poly = input("computor ")
+		# os.system('cls' if os.name == 'nt' else 'clear')
 
 		l_dict, r_dict = parse_input(input_poly)
 		reduced_form = reduce_equation(l_dict, r_dict)
