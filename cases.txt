@@ -6,3 +6,24 @@ All real numbers are solutions
 Reduced form: 0 = 0
 All real numbers are solutions
 
+
+
+-----------------------------------------------
+
+Degree 1:
+
+computor 5 * X^0 + 4 * X^1 = 4 * X^0
+
+Reduced form: 1 * X^0 + 4 * X^1 = 0
+Polynomial degree: 1
+
+Steps:
+a = 4
+b = 1
+
+x = -b / a
+x = -1 / 4
+x = -0.25
+
+Solution:
+-0.25

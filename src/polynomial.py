@@ -51,6 +51,8 @@ def get_degree(red_form):
 	degree = max(exp)
 	return int(degree)
 
+#TODO: Implement a function called intermediate_steps
+
 def solve_degree_0(red_form):
 	a = red_form.get(0,0)
 
@@ -67,6 +69,11 @@ def solve_degree_1(red_form):
 	a = red_form.get(1, 0)
 	b = red_form.get(0, 0)
 	x = -b / a
+	print("\nSteps:\n")
+	print(f"a = {a}\nb = {b}\n")
+	print(f"x = -b / a")
+	print(f"x = {format_number(-b)} / {format_number(a)}")
+	print(f"x = {format_number(x)}\n")
 	print(f"The solution is:\n{format_number(x)}")
 
 def solve_degree_2(red_form):
