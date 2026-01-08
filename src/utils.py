@@ -1,5 +1,6 @@
 import re
 
+#TODO: rename the print function names
 def print_discriminant_positive(x_1, x_2):
 	print("Discriminant is strictly positive, the two solutions are:")
 	print(f"{x_1:.6}\n{x_2:.6}")
@@ -53,6 +54,13 @@ def check_bad_spacing(i_str):
 	if re.search(r"(?<! )[=*]|[=*](?! )", i_str):
 		return True
 	if re.search(r"(:?(?<!^)(?<!= ))(:?(?<! )[-+]|[-+](?! ))", i_str):
+		return True
+	return False
+
+def is_zero_polynomial(red_form):
+	coef_list = x = [c for c in list(red_form.values()) if c > 1e-12]
+
+	if not coef_list:
 		return True
 	return False
 

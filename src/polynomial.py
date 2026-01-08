@@ -6,9 +6,8 @@ def format_reduced_form(red_dict):
 	expression = ""
 	first_term = True
 	sorted_terms = dict(sorted(red_dict.items()))
-	coef_list = x = [c for c in list(red_dict.values()) if c > 0]
 
-	if not coef_list:
+	if is_zero_polynomial(red_dict):
 		expression = "0 = 0"
 		return expression
 	for exp, coef in sorted_terms.items():
@@ -77,6 +76,9 @@ def solve_degree_2(red_form):
 	f(x) = ax^2 + bx + c
 	delta = b^2 - 4ac
 	'''
+	if is_zero_polynomial(red_form):
+		print("All real numbers are solutions")
+		return None
 
 	a = red_form.get(2, 0)
 	b = red_form.get(1, 0)
