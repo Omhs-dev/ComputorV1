@@ -1,15 +1,16 @@
 import re
 
+''' PINTERS '''
 #TODO: rename the print function names
-def print_discriminant_positive(x_1, x_2):
+def print_two_real_solutions(x_1, x_2):
 	print("Discriminant is strictly positive, the two solutions are:")
 	print(f"{x_1:.6}\n{x_2:.6}")
 
-def print_discriminant_zero(x):
+def print_one_real_solution(x):
 	print("Discriminant is = 0, the solution is:")
 	print(f"x: {format_number(x)}")
 
-def print_discriminant_negative(alpha_1, beta_1, alpha_2, beta_2):
+def print_two_complex_solutions(alpha_1, beta_1, alpha_2, beta_2):
 	print("Discriminant is strictly negative, the complex solutions are:")
 	print(f"{format_number(alpha_1)} + {format_number(beta_1)}*i")
 	print(f"{format_number(alpha_2)} - {format_number(beta_2)}*i")
@@ -22,6 +23,8 @@ def print_reduced_form(red_form):
 
 def print_degree(degree):
 	print(f"Polynomial degree: {degree}")
+
+''' CHECKERS '''
 
 def is_X_only(i_str):
 	'''verify that only X is being used as variable'''
@@ -63,6 +66,8 @@ def is_zero_polynomial(red_form):
 	if not coef_list:
 		return True
 	return False
+
+''' MATH '''
 
 def format_number(n):
 	if isinstance(n, float):

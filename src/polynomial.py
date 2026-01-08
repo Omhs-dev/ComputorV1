@@ -1,5 +1,3 @@
-import math
-from parser import *
 from src.utils import *
 
 def format_reduced_form(red_dict):
@@ -89,16 +87,16 @@ def solve_degree_2(red_form):
 	if delta > 0:
 		x_1 = (-b - sqrt_newton(delta)) / (2 * a)
 		x_2 = (-b + sqrt_newton(delta)) / (2 * a)
-		print_discriminant_positive(x_1, x_2)
+		print_two_real_solutions(x_1, x_2)
 	if delta == 0:
 		x = -b / 2 * a
-		print_discriminant_zero(x)
+		print_one_real_solution(x)
 	if delta < 0:
 		alpha_1 = -b / (2 * a)
 		beta_1 = sqrt_newton(abs(delta)) / (2 * a)
 		alpha_2 = -b / (2 * a)
 		beta_2 = sqrt_newton(abs(delta)) / (2 * a)
-		print_discriminant_negative(alpha_1, beta_1, alpha_2, beta_2)
+		print_two_complex_solutions(alpha_1, beta_1, alpha_2, beta_2)
 
 def solve_polynomial(red_form, degree):
 	if degree == 0:
