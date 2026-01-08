@@ -3,13 +3,14 @@ from parser import *
 from src.utils import *
 
 def format_reduced_form(red_dict):
-	#TODO: reduced format for 0 = 0
 	expression = ""
 	first_term = True
 	sorted_terms = dict(sorted(red_dict.items()))
+	coef_list = x = [c for c in list(red_dict.values()) if c > 0]
 
-	if red_dict.get(0,0) == 0:
-		return None
+	if not coef_list:
+		expression = "0 = 0"
+		return expression
 	for exp, coef in sorted_terms.items():
 		if abs(coef) < 1e-12:
 			continue
