@@ -12,9 +12,9 @@ def extract_raw_terms(n_str):
 	return terms
 
 def extract_term_components(term):
-	match = re.match(r"^([-+])([0-9]+(?:\.[0-9]+)?)\*X(?:\^([0-9]+))?$", term)
+	full_term = re.match(r"^([-+])([0-9]+(?:\.[0-9]+)?)\*X(?:\^([0-9]+))?$", term)
 
-	if not match:
+	if not full_term:
 		return None
 	sign, const, exp = match.groups()
 	return sign, const, exp

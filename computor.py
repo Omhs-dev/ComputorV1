@@ -31,12 +31,11 @@ def main():
 		print_reduced_form(display_form)
 		print_degree(degree)
 		solve_polynomial(reduced_form, degree)
-	
+
 		return 0
 	except ValueError as e:
 		print(f"Error: {e}")
 		return 1
 
-# TODO: use raise systemExit
 if __name__ == "__main__":
-	sys.exit(main())
+	raise SystemExit(main())

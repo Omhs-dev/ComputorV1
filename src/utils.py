@@ -80,7 +80,7 @@ def discriminant_negative_steps(delta, a, b, c):
 	x2 = (-b + i√|Δ|) / (2a)
 
 	x1 = {format_number(alpha_1)} + {format_number(beta_1)}*i
-	x1 = {format_number(alpha_2)} - {format_number(beta_2)}*i
+	x2 = {format_number(alpha_2)} - {format_number(beta_2)}*i
 	"""
 	print(steps)
 
@@ -123,9 +123,24 @@ def is_X_only(i_str):
 def is_valid_term(term):
 	'''check if a term is valid (-|=d * X^n)'''
 	n_term = term.replace(" ", "")
-	valid_term = re.fullmatch(r"^[-+]?[0-9]+(:?\.[0-9]+)?\*X\^[0-9]+?$", n_term)
+	full_term = re.fullmatch(r"^[-+]?[0-9]+(?:\.[0-9]+)?\*X\^[0-9]+?$", n_term)
+	only_const = re.fullmatch(r"^[-+]?[0-9]+(?:\.[0-9]+)?$", n_term)
+	coef_var = re.fullmatch("^[-+]?[0-9]+\*?X$", n_term)
+	coef_var_exp = re.fullmatch(r"^[-+]?[0-9]+(?:\.[0-9]+)?X\^[0-9]+$", n_term)
+	var_exp = re.fullmatch(r"^[-+]?X\^[0-9]+?$", n_term)
+	only_var = re.fullmatch(r"^[-+]?X$", n_term)
 
-	if valid_term is not None:
+	if full_term is not None:
+		return True
+	if only_const is not None:
+		return True
+	if coef_var is not None:
+		return True
+	if coef_var_exp is not None:
+		return True
+	if var_exp is not None:
+		return True
+	if only_var is not None:
 		return True
 	return False
 

@@ -1,3 +1,27 @@
+FREE FORM:
+
+./computor "5 + 4 * X + X^2= X^2"
+Reduced form: 5 + 4 * X = 0
+Polynomial degree: 1
+The solution is:
+-1.25
+
+Edge Cases:
+- should be able to take only constant
+- should be able to take for coef * variable without exponent
+- should be able to take X alone without coef or exp
+- Constant alone
+- X alone
+- -X, +X
+- aX (no *)
+- a*X
+- Missing exponent → ^1
+- Missing coef → 1
+- Arbitrary spaces
+- Leading term without sign
+
+-----------------------------------------------
+
 5 * X^2 + 3 * X^1 = 5 * X^2 + 3 * X^1
 0 = 0
 All real numbers are solutions
@@ -5,8 +29,6 @@ All real numbers are solutions
 0 * X^2 + 0 * X^1 = 0 * X^0
 Reduced form: 0 = 0
 All real numbers are solutions
-
-
 
 -----------------------------------------------
 
