@@ -1,4 +1,4 @@
-import os
+import sys
 
 from src.parsing import parse_input
 from src.utils import print_reduced_form, print_degree
@@ -18,8 +18,11 @@ from src.polynomial import (
 
 def main():
 	try:
-		input_poly = input("computor ")
-		# os.system('cls' if os.name == 'nt' else 'clear')
+		if len(sys.argv) != 2:
+			print("Error: please provide the equation")
+			return 1
+
+		input_poly = sys.argv[1]
 
 		l_dict, r_dict = parse_input(input_poly)
 		reduced_form = reduce_equation(l_dict, r_dict)
@@ -28,10 +31,13 @@ def main():
 		print_reduced_form(display_form)
 		print_degree(degree)
 		solve_polynomial(reduced_form, degree)
+	
+		return 0
+
 	except ValueError as e:
 		print(f"Error: {e}")
-	except (KeyboardInterrupt, EOFError):
-		print("\nExiting...")
+		return 1
 
+# TODO: use raise systemExit
 if __name__ == "__main__":
-	main()
+	sys.exit(main())

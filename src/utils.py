@@ -167,7 +167,6 @@ def sqrt_newton(x):
 	'''
 	Newton formula:
 	n_guess = n_guess - f(curr_guess)/f'(curr_guess)
-	
 	for my square root implementation:
 	y^2 = x
 	f(y) = y^2 - x

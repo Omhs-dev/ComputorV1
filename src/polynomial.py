@@ -25,13 +25,6 @@ def format_reduced_form(red_dict):
 	return expression
 
 def reduce_equation(left, right):
-	'''
-	move everything to the left
-	check the matching exponent
-	calculate the matching ones
-	then equalize everything to 0
-	then return
-	'''
 	all_exp = set(left) | set(right)
 
 	for exp in all_exp:
