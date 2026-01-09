@@ -45,13 +45,11 @@ def reduce_equation(left, right):
 	return left
 
 def get_degree(red_form):
-	exp = set(red_form)
-	if not red_form:
+	if is_zero_polynomial(red_form):
 		return 0
+	exp = set(red_form)
 	degree = max(exp)
 	return int(degree)
-
-#TODO: Implement a function called intermediate_steps
 
 def solve_degree_0(red_form):
 	a = red_form.get(0,0)

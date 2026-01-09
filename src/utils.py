@@ -148,7 +148,7 @@ def check_bad_spacing(i_str):
 	return False
 
 def is_zero_polynomial(red_form):
-	coef_list = x = [c for c in list(red_form.values()) if c > 1e-12]
+	coef_list = [c for c in list(red_form.values()) if c > 1e-12]
 
 	if not coef_list:
 		return True
