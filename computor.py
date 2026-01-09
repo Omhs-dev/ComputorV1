@@ -19,7 +19,7 @@ from src.polynomial import (
 def main():
 	try:
 		if len(sys.argv) != 2:
-			print("Error: please provide the equation")
+			print('Usage: python3 computor.py "<equation>"')
 			return 1
 
 		input_poly = sys.argv[1]
@@ -33,7 +33,6 @@ def main():
 		solve_polynomial(reduced_form, degree)
 	
 		return 0
-
 	except ValueError as e:
 		print(f"Error: {e}")
 		return 1
