@@ -69,12 +69,8 @@ def solve_degree_1(red_form):
 	a = red_form.get(1, 0)
 	b = red_form.get(0, 0)
 	x = -b / a
-	print("\nSteps:\n")
-	print(f"a = {a}\nb = {b}\n")
-	print(f"x = -b / a")
-	print(f"x = {format_number(-b)} / {format_number(a)}")
-	print(f"x = {format_number(x)}\n")
-	print(f"The solution is:\n{format_number(x)}")
+	degree_1_steps(a, b)
+	print_solution(x)
 
 def solve_degree_2(red_form):
 	'''
@@ -94,17 +90,19 @@ def solve_degree_2(red_form):
 	if delta > 0:
 		x_1 = (-b - sqrt_newton(delta)) / (2 * a)
 		x_2 = (-b + sqrt_newton(delta)) / (2 * a)
-		print(positive_delta_steps(delta, a, b, c).strip())
+		discriminant_positive_steps(delta, a, b, c)
 		print_two_real_solutions(x_1, x_2)
 	if delta == 0:
 		x = -b / 2 * a
+		discriminant_0_steps(delta, a, b, c)
 		print_one_real_solution(x)
 	if delta < 0:
 		alpha_1 = -b / (2 * a)
 		beta_1 = sqrt_newton(abs(delta)) / (2 * a)
 		alpha_2 = -b / (2 * a)
 		beta_2 = sqrt_newton(abs(delta)) / (2 * a)
-		print_two_complex_solutions(alpha_1, beta_1, alpha_2, beta_2)
+		discriminant_negative_steps(delta, a, b, c)
+		print_complex_solutions(alpha_1, beta_1, alpha_2, beta_2)
 
 def solve_polynomial(red_form, degree):
 	if degree == 0:
