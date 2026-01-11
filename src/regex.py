@@ -16,7 +16,7 @@ def extract_term_components(term):
 
 	if not full_term:
 		return None
-	sign, const, exp = match.groups()
+	sign, const, exp = full_term.groups()
 	return sign, const, exp
 
 def parse_only_constant(term):
