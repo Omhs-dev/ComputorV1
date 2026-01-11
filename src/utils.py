@@ -51,9 +51,9 @@ def discriminant_0_steps(delta, a, b, c):
 
 	Δ = 0 → one real solutions
 
-	x1 = -b / 2a
+	x = -b / 2a
 	x = {format_number(-b)} / {format_number(2 * a)}
-	x1 = {format_number(-b / 2 * a)}
+	x = {format_number(-b / (2 * a))}
 	"""
 	print(steps)
 
@@ -79,8 +79,8 @@ def discriminant_negative_steps(delta, a, b, c):
 	x1 = (-b - i√|Δ|) / (2a)
 	x2 = (-b + i√|Δ|) / (2a)
 
-	x1 = {format_number(alpha_1)} + {format_number(beta_1)}*i
-	x2 = {format_number(alpha_2)} - {format_number(beta_2)}*i
+	x1 = {format_number(alpha_1)} + {format_number(abs(beta_1))}*i
+	x2 = {format_number(alpha_2)} - {format_number(abs(beta_2))}*i
 	"""
 	print(steps)
 
@@ -99,8 +99,8 @@ def print_one_real_solution(x):
 
 def print_complex_solutions(alpha_1, beta_1, alpha_2, beta_2):
 	print("Discriminant is strictly negative, the complex solutions are:")
-	print(f"{format_number(alpha_1)} + {format_number(beta_1)}*i")
-	print(f"{format_number(alpha_2)} - {format_number(beta_2)}*i")
+	print(f"{format_number(alpha_1)} + {format_number(abs(beta_1))}*i")
+	print(f"{format_number(alpha_2)} - {format_number(abs(beta_2))}*i")
 
 def print_degree_limit_error():
 	print("The polynomial degree is strictly greater than 2, I can't solve.")
@@ -123,24 +123,9 @@ def is_X_only(i_str):
 def is_valid_term(term):
 	'''check if a term is valid (-|=d * X^n)'''
 	n_term = term.replace(" ", "")
-	full_term = re.fullmatch(r"^[-+]?[0-9]+(?:\.[0-9]+)?\*X\^[0-9]+?$", n_term)
-	only_const = re.fullmatch(r"^[-+]?[0-9]+(?:\.[0-9]+)?$", n_term)
-	coef_var = re.fullmatch("^[-+]?[0-9]+\*?X$", n_term)
-	coef_var_exp = re.fullmatch(r"^[-+]?[0-9]+(?:\.[0-9]+)?X\^[0-9]+$", n_term)
-	var_exp = re.fullmatch(r"^[-+]?X\^[0-9]+?$", n_term)
-	only_var = re.fullmatch(r"^[-+]?X$", n_term)
+	full_term = re.fullmatch(r"^[-+]?[0-9]+(?:\.[0-9]+)?\*X\^[0-9]+$", n_term)
 
 	if full_term is not None:
-		return True
-	if only_const is not None:
-		return True
-	if coef_var is not None:
-		return True
-	if coef_var_exp is not None:
-		return True
-	if var_exp is not None:
-		return True
-	if only_var is not None:
 		return True
 	return False
 
@@ -163,7 +148,7 @@ def check_bad_spacing(i_str):
 	return False
 
 def is_zero_polynomial(red_form):
-	coef_list = [c for c in list(red_form.values()) if c > 1e-12]
+	coef_list = [c for c in list(red_form.values()) if abs(c) > 1e-12]
 
 	if not coef_list:
 		return True

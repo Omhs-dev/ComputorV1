@@ -84,7 +84,7 @@ def solve_degree_2(red_form):
 		discriminant_positive_steps(delta, a, b, c)
 		print_two_real_solutions(x_1, x_2)
 	if delta == 0:
-		x = -b / 2 * a
+		x = -b / (2 * a)
 		discriminant_0_steps(delta, a, b, c)
 		print_one_real_solution(x)
 	if delta < 0:

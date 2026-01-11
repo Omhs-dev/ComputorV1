@@ -19,11 +19,9 @@ def normalize_equation(i_str):
 	return l_side, r_side
 
 def term_to_dict(raw_terms):
-	print(f"terms: {raw_terms}")
 	d = {}
 	for term in raw_terms:
 		components = extract_term_components(term)
-		print(f"comoponents: {components}")
 		if not components:
 			continue
 

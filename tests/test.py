@@ -10,7 +10,6 @@ from src.polynomial import reduce_equation, format_reduced_form, get_degree, sol
 
 # command: python3 -m unittest -v
 def run_flow(equation: str):
-	# Mimic main() flow without input()
 	l_dict, r_dict = parse_input(equation)
 	reduced = reduce_equation(l_dict, r_dict)
 	display = format_reduced_form(reduced)
