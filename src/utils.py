@@ -180,7 +180,7 @@ def sqrt_newton(x):
 		return 0
 	if x == 1:
 		return 1
-	
+
 	y = x/2 if x >= 1 else 1 # the guess
 
 	i = 0
